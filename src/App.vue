@@ -11,19 +11,16 @@
             </div>
           </div>
           <nav>
-            <a href='/search' class="active">Search</a>
-            <a href='/my-list'>My List</a>
+            <router-link to="/search">Search</router-link>
+            <router-link to="/my-list">My List</router-link>
           </nav>
         </header>
         <div class="search">
-          <router-view></router-view>
-          <SearchRepository @data-upload='data = arguments[0]' @request-status-change='isRequestSent = arguments[0]'
-              :repositoryViewType='repositoryViewType' @view-changed='repositoryViewType = arguments[0]'
-              :data='data' :savedData='savedData' :hasRequestSent='isRequestSent' :viewType='repositoryViewType'
-              @data-toggled='toggleSavedData' />
-          <MyList :repositoryViewType='repositoryViewType' @view-changed='repositoryViewType = arguments[0]'
-              :data='data' :savedData='savedData' :hasRequestSent='isRequestSent' :viewType='repositoryViewType'
-              @data-toggled='toggleSavedData'/>
+          <router-view @data-upload='data = arguments[0]' @request-status-change='isRequestSent = arguments[0]'
+              @view-changed='repositoryViewType = arguments[0]' @data-toggled='toggleSavedData'
+              :repositoryViewType='repositoryViewType' :data='data' :savedData='savedData' :hasRequestSent='isRequestSent'
+              :viewType='repositoryViewType'  >
+          </router-view>
         </div>
       </div>
 
@@ -206,7 +203,7 @@ nav a:last-child {
 }
 
 nav a:hover,
-nav a.active {
+nav a.router-link-exact-active {
   color: #fff;
 }
 

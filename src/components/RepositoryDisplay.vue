@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="repositories-not-found" v-if='hasRequestSent && getData.length === 0 || isMyList'>
+    <div class="repositories-not-found" v-if='(hasRequestSent || isMyList)  && getData.length === 0'>
       <h1>{{isMyList ? 'NO REPOSITORIES ADDED' : 'NO RESULTS FOUND'}}</h1>
       <p>{{isMyList ? null : 'select other parameters and try again'}}</p>
     </div>
